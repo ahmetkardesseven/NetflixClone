@@ -18,6 +18,7 @@
 		E38B1EFD298A78F5001618E3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38B1EFC298A78F5001618E3 /* SearchViewController.swift */; };
 		E38B1EFF298A7968001618E3 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38B1EFE298A7968001618E3 /* DownloadsViewController.swift */; };
 		E38B1F06298A82BA001618E3 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38B1F05298A82BA001618E3 /* CollectionViewTableViewCell.swift */; };
+		E38B1F08298A8C2C001618E3 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38B1F07298A8C2C001618E3 /* HeroHeaderUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E38B1EFC298A78F5001618E3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E38B1EFE298A7968001618E3 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		E38B1F05298A82BA001618E3 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		E38B1F07298A8C2C001618E3 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				E38B1F05298A82BA001618E3 /* CollectionViewTableViewCell.swift */,
+				E38B1F07298A8C2C001618E3 /* HeroHeaderUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E38B1EFB298A78D4001618E3 /* UpcomingViewController.swift in Sources */,
+				E38B1F08298A8C2C001618E3 /* HeroHeaderUIView.swift in Sources */,
 				E38B1EFD298A78F5001618E3 /* SearchViewController.swift in Sources */,
 				E38B1EFF298A7968001618E3 /* DownloadsViewController.swift in Sources */,
 				E38B1EF9298A7879001618E3 /* HomeViewController.swift in Sources */,
