@@ -20,6 +20,8 @@
 		E38B1F06298A82BA001618E3 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38B1F05298A82BA001618E3 /* CollectionViewTableViewCell.swift */; };
 		E38B1F08298A8C2C001618E3 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38B1F07298A8C2C001618E3 /* HeroHeaderUIView.swift */; };
 		E3DDE248298C568E0002DB00 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDE247298C568E0002DB00 /* APICaller.swift */; };
+		E3DDE24E298C6CBC0002DB00 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDE24D298C6CBC0002DB00 /* Movie.swift */; };
+		E3DDE250298C7BF30002DB00 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDE24F298C7BF30002DB00 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		E38B1F05298A82BA001618E3 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		E38B1F07298A8C2C001618E3 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
 		E3DDE247298C568E0002DB00 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		E3DDE24D298C6CBC0002DB00 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		E3DDE24F298C7BF30002DB00 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,11 +74,11 @@
 		E38B1EDF298A754E001618E3 /* NetflixClone */ = {
 			isa = PBXGroup;
 			children = (
+				E3DDE24C298C683B0002DB00 /* Resources */,
+				E3DDE24B298C68320002DB00 /* Models */,
+				E3DDE24A298C681A0002DB00 /* ViewModels */,
 				E3DDE246298C56720002DB00 /* Managers */,
-				E38B1F03298A825A001618E3 /* Resources */,
-				E38B1F02298A824E001618E3 /* Models */,
 				E38B1F01298A8241001618E3 /* Views */,
-				E38B1F00298A822E001618E3 /* ViewModels */,
 				E38B1EF7298A7828001618E3 /* Controllers */,
 				E38B1EE0298A754E001618E3 /* AppDelegate.swift */,
 				E38B1EE2298A754E001618E3 /* SceneDelegate.swift */,
@@ -98,13 +102,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		E38B1F00298A822E001618E3 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		E38B1F01298A8241001618E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,26 +111,35 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		E38B1F02298A824E001618E3 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E38B1F03298A825A001618E3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		E3DDE246298C56720002DB00 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				E3DDE247298C568E0002DB00 /* APICaller.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		E3DDE24A298C681A0002DB00 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E3DDE24B298C68320002DB00 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E3DDE24D298C6CBC0002DB00 /* Movie.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E3DDE24C298C683B0002DB00 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E3DDE24F298C7BF30002DB00 /* Extensions.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,11 +214,13 @@
 			files = (
 				E38B1EFB298A78D4001618E3 /* UpcomingViewController.swift in Sources */,
 				E38B1F08298A8C2C001618E3 /* HeroHeaderUIView.swift in Sources */,
+				E3DDE24E298C6CBC0002DB00 /* Movie.swift in Sources */,
 				E38B1EFD298A78F5001618E3 /* SearchViewController.swift in Sources */,
 				E38B1EFF298A7968001618E3 /* DownloadsViewController.swift in Sources */,
 				E38B1EF9298A7879001618E3 /* HomeViewController.swift in Sources */,
 				E38B1EEB298A754E001618E3 /* NetflixClone.xcdatamodeld in Sources */,
 				E38B1F06298A82BA001618E3 /* CollectionViewTableViewCell.swift in Sources */,
+				E3DDE250298C7BF30002DB00 /* Extensions.swift in Sources */,
 				E38B1EE5298A754E001618E3 /* MainTabBarViewController.swift in Sources */,
 				E3DDE248298C568E0002DB00 /* APICaller.swift in Sources */,
 				E38B1EE1298A754E001618E3 /* AppDelegate.swift in Sources */,
