@@ -115,7 +115,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         case Sections.Upcoming.rawValue:
-            APICaller.shared.getTopRated { result in
+            APICaller.shared.getUpcomingMovies { result in
                 switch result {
                 case .success(let titles):
                     cell.configure(with: titles)

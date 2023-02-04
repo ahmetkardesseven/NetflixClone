@@ -108,7 +108,7 @@ func getTrendingMovies(completion: @escaping (Result<[Title], Error>) -> Void){
         
     }
     func getTopRated(completion: @escaping (Result<[Title], Error>) -> Void){
-        guard let url = URL(string: "\(Constants.baseURL)3/movie/top_rated?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {return }
+        guard let url = URL(string: "\(Constants.baseURL)/3/movie/top_rated?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {return }
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)){ data, _, error in
             guard let data = data, error == nil else {
                 return
@@ -130,3 +130,6 @@ func getTrendingMovies(completion: @escaping (Result<[Title], Error>) -> Void){
     
 }
 //https://api.themoviedb.org/3/movie/top_rated?api_key=<<api_key>>&language=en-US&page=1
+
+//https://api.themoviedb.org/3/movie/{movie_id}/translations?api_key=<<api_key>>
+//https://api.themoviedb.org/3/person/{person_id}/images?api_key=<<api_key>>
