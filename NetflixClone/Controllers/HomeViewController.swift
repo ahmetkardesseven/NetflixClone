@@ -51,22 +51,36 @@ class HomeViewController: UIViewController {
         homeFeedTable.frame = view.bounds
     }
     private func fetchData(){
-//        APICaller.shared.getTrendingMovies{ results in
-//            switch results {
-//
-//            case .success(let movies):
-//                print(movies)
-//            case .failure(let error):
-//                print(error)
-//            }
-//
+        //        APICaller.shared.getTrendingMovies{ results in
+        //            switch results {
+        //
+        //            case .success(let movies):
+        //                print(movies)
+        //            case .failure(let error):
+        //                print(error)
+        //            }
+        //
+        //
+        //        }
+        //        APICaller.shared.getTrendingTvs { result in
+        //
+        //        }
+        
+//        APICaller.shared.getUpcomingMovies { result in
 //
 //        }
-        APICaller.shared.getTrendingTvs { result in
+//        APICaller.shared.getPopular { result in
+//
+//        }
+        APICaller.shared.getTopRated { result in
             
         }
+            
+        
+        
+        
+        
     }
-
     
 }
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
