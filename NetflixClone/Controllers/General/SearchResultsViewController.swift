@@ -51,7 +51,7 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         }
         
         let title = titles[indexPath.row]
-        cell.configure(with: title.poster_path ?? "Unkonw")
+        cell.configure(with: title.poster_path ?? "")
         return cell
     }
     
