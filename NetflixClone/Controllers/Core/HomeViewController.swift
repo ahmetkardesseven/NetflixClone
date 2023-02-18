@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 enum Sections: Int {
     case TrendingMovies = 0
     case TrendingTv = 1
@@ -16,22 +15,10 @@ enum Sections: Int {
     case TopRated = 4
 }
 
-
-
-
-
-
-
-
-
-
-class HomeViewController: UIViewController {
-    
+final class HomeViewController: UIViewController {
     
     private var randomTrendingMovie: Title?
     private var headerView: HeroHeaderUIView?
-    
-    
     
     let sectionTitles:[String] = ["Trendıng Movıes","Trendıng Tv","Popular","Upcomıng Movıes","Top rated"]
     
@@ -41,7 +28,6 @@ class HomeViewController: UIViewController {
         return table
     }()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -53,11 +39,14 @@ class HomeViewController: UIViewController {
         
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 500))
         homeFeedTable.tableHeaderView = headerView
-        
-        
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        homeFeedTable.frame = view.bounds
+    }
+    
     private func configureHeroHeaderView() {
-        
         APICaller.shared.getTrendingMovies { [weak self] result in
             switch result {
             case .success(let titles):
@@ -69,30 +58,19 @@ class HomeViewController: UIViewController {
                 print(erorr.localizedDescription)
             }
         }
-        
     }
     
-    
-        private func configureNavbar() {
-            var image = UIImage(named: "logo")
-            image = image?.withRenderingMode(.alwaysOriginal)
-            navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
-            navigationItem.rightBarButtonItems = [
-                UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
-                UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
-                
-            ]
-            navigationController?.navigationBar.tintColor = .white
-        }
-        
-    
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        homeFeedTable.frame = view.bounds
+    private func configureNavbar() {
+        var image = UIImage(named: "logo")
+        image = image?.withRenderingMode(.alwaysOriginal)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
+            UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
+            
+        ]
+        navigationController?.navigationBar.tintColor = .white
     }
-   
-    
 }
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -103,20 +81,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
         cell.delegete = self
         
-        
-        
-        
         switch indexPath.section {
         case Sections.TrendingMovies.rawValue:
-            
             APICaller.shared.getTrendingMovies { result in
-                
                 switch result {
                 case .success(let titles):
                     cell.configure(with: titles)
@@ -161,22 +135,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                     print(error.localizedDescription)
                 }
             }
-            
-            
         default:
             return UITableViewCell()
         }
-        
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
+    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
@@ -185,12 +157,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         header.textLabel?.text = header.textLabel?.text?.capitalized
     }
     
-    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitles[section]
     }
-    
-    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let defaultOffset = view.safeAreaInsets.top
@@ -198,18 +167,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
     }
-    
-    
-    
 }
 extension HomeViewController: CollectionViewTableViewCellDelegate {
+    
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
         DispatchQueue.main.async { [weak self] in
             let vc = TitlePreviewViewController()
             vc.configure(with: viewModel)
             self?.navigationController?.pushViewController(vc, animated: true)
         }
-      
     }
 }
 
