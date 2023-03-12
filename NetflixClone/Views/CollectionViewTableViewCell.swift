@@ -14,7 +14,7 @@ protocol CollectionViewTableViewCellDelegate: AnyObject {
     
 }
 
-class CollectionViewTableViewCell: UITableViewCell {
+final class CollectionViewTableViewCell: UITableViewCell {
 
    static let identifier = "CollectionViewTableViewCell"
     

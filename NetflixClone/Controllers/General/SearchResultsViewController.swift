@@ -15,7 +15,7 @@ protocol SearchResultsViewControllerDelegate: AnyObject {
 
 
 
-class SearchResultsViewController: UIViewController {
+final class SearchResultsViewController: UIViewController {
     
     public var titles: [Title] = [Title]()
     

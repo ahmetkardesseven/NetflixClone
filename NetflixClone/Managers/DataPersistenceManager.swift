@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class DataPersistenceManager {
+final class DataPersistenceManager {
     
     enum DatabasError: Error {
         case failedToSaveData

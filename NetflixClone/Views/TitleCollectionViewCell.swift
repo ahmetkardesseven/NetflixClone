@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class TitleCollectionViewCell: UICollectionViewCell {
+final class TitleCollectionViewCell: UICollectionViewCell {
     
     
     static let identifier = "TitleCollectionViewCell"

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DownloadsViewController: UIViewController {
+final class DownloadsViewController: UIViewController {
     
     
     private var titles: [TitleItem] = [TitleItem]()
