@@ -19,7 +19,7 @@ class SearchResultsViewController: UIViewController {
     
     public var titles: [Title] = [Title]()
     
-    public weak var delegate: SearchResultsViewController?
+    public weak var delegate: SearchResultsViewControllerDelegate?
     
     public let searchResultsCollectionView: UICollectionView = {
         
@@ -71,12 +71,11 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         let title = titles[indexPath.row]
         let titleName = title.original_title ?? ""
         
-        APICaller.shared.getMovie(with: title.original_title ?? "") { [weak self] result in
+        APICaller.shared.getMovie(with: titleName) { [weak self] result in
             switch result {
             case .success(let videoElement):
-                
-                    let vc = TitlePreviewViewController()
-                    vc.configure(with: TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: title.overview ?? "" ))
+                self?.delegate?.searchResultsViewControllerDidTapItem(TitlePreviewViewModel(title: title.original_title ?? "", youtubeView: videoElement, titleOverview: title.overview ?? ""))
+
               
                 
             case .failure(let error):

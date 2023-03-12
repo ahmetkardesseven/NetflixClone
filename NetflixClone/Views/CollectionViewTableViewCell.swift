@@ -20,6 +20,8 @@ class CollectionViewTableViewCell: UITableViewCell {
     
     
     weak var delegete: CollectionViewTableViewCellDelegate?
+
+    
     
     
     
@@ -28,6 +30,7 @@ class CollectionViewTableViewCell: UITableViewCell {
     private let collectionView: UICollectionView = {
         
     let layout = UICollectionViewFlowLayout()
+        
         layout.itemSize = CGSize(width: 140, height: 200)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -39,7 +42,6 @@ class CollectionViewTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .systemPink
         contentView.addSubview(collectionView)
         
         collectionView.delegate = self
@@ -67,22 +69,19 @@ class CollectionViewTableViewCell: UITableViewCell {
     }
     private func downloadTitleAt(indexPath: IndexPath) {
         
-        DataPersistenceManager.shared.downloadTitleWith(model: titles[indexPath.row]) { result in
-            switch result {
-            case .success():
-                
-                print("downloaded to Database")
-            case .failure(let error):
-                print(error.localizedDescription)
+        
+            DataPersistenceManager.shared.downloadTitleWith(model: titles[indexPath.row]) { result in
+                switch result {
+                case .success():
+                    NotificationCenter.default.post(name: NSNotification.Name("downloaded"), object: nil)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
-        }
-        
-        
     }
-    
-    
 }
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return titles.count
     }
@@ -127,7 +126,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
     }
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         
-    
+        
         
         
         let config = UIContextMenuConfiguration(

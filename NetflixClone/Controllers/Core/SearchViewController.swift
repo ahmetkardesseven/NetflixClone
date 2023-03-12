@@ -136,7 +136,7 @@ extension SearchViewController: UISearchResultsUpdating, SearchResultsViewContro
               let resultsController = searchController.searchResultsController as? SearchResultsViewController else {
             return
         }
-       //   resultsController.delegate = self
+        resultsController.delegate = self
         
         
         
